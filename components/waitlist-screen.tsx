@@ -46,34 +46,8 @@ export function WaitlistScreen() {
                 </div>
 
                 {/* Queue Jump CTA */}
-                <div className="text-sm bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-8">
-                    <p className="text-blue-200 font-medium mb-1">Want to jump the line?</p>
-                    <p className="text-blue-300/70 text-xs mb-3">
-                        Follow us on X and DM us your email. We prioritize active community members.
-                    </p>
-                    <a
-                        href="https://twitter.com/verdict_ai" // Placeholder
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-xs font-semibold transition-colors"
-                    >
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zl-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-                        @verdict_ai
-                    </a>
-                </div>
-
-                {/* Mini Education / Hype */}
-                <div className="text-left border-t border-white/[0.05] pt-6">
-                    <p className="text-xs text-zinc-500 uppercase tracking-wider mb-3">While you wait</p>
-                    <div className="space-y-3">
-                        <div className="flex gap-3">
-                            <div className="w-16 h-12 bg-zinc-800 rounded mb-2 shrink-0 border border-white/10" />
-                            <div>
-                                <h3 className="text-sm text-zinc-300 font-medium">How the "Tribunal" works</h3>
-                                <p className="text-xs text-zinc-500">Learn how we synthesize 3 models into one answer.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="text-zinc-500 text-sm">
+                    We'll email you at {user?.primaryEmailAddress?.emailAddress} when you're in.
                 </div>
             </motion.div>
         </div>
