@@ -9,11 +9,12 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-title: "verdict.ai — Multi-LLM Query Platform",
+export const metadata: Metadata = {
+  title: "verdict.ai — Multi-LLM Query Platform",
   description:
-"Query Claude Opus 4.5, GPT-5.2, and Gemini 3 Pro simultaneously. Get intelligent meta-analysis of AI responses.",
+    "Query Claude Opus 4.5, GPT-5.2, and Gemini 3 Pro simultaneously. Get intelligent meta-analysis of AI responses.",
   keywords: ["AI", "LLM", "Claude", "GPT-5", "Gemini", "comparison", "verdict"],
-    metadataBase: new URL("https://tryverdict.app"),
+  metadataBase: new URL("https://tryverdict.app"),
 };
 
 export default function RootLayout({

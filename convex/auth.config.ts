@@ -1,7 +1,7 @@
 export default {
     providers: [
         {
-            domain: "https://full-cricket-67.clerk.accounts.dev",
+            domain: process.env.CLERK_ISSUER_URL,
             applicationID: "convex",
         },
     ],

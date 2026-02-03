@@ -128,7 +128,8 @@ export default defineSchema({
         createdAt: v.number(),
     })
         .index("by_model", ["modelId"])
-        .index("by_prompt", ["promptId"]),
+        .index("by_prompt", ["promptId"])
+        .index("by_run", ["runId"]),
 
     // Security & Limits
     globalStats: defineTable({
