@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { DemoSection } from "@/components/landing/demo-section";
 import { TrustSection } from "@/components/landing/trust-section";
@@ -11,6 +13,7 @@ import { OpenAILogo, AnthropicLogo, GeminiLogo } from "@/components/icons";
 
 export default function MarketingPage() {
     const [isQualityModalOpen, setIsQualityModalOpen] = useState(false);
+    const spotsData = useQuery(api.users.getRemainingSpots);
 
     return (
         <div className="min-h-screen bg-[#050505] text-white overflow-x-hidden selection:bg-purple-500/30">
@@ -116,12 +119,23 @@ export default function MarketingPage() {
                             </div>
 
                             {/* Live Status Badge */}
-                            <div className="flex items-center gap-2 text-xs font-medium text-green-400 bg-green-500/10 px-3 py-1.5 rounded-full border border-green-500/20">
+                            <div className={`flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full border ${
+                                spotsData?.remaining === 0
+                                    ? "text-orange-400 bg-orange-500/10 border-orange-500/20"
+                                    : "text-green-400 bg-green-500/10 border-green-500/20"
+                            }`}>
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                                        spotsData?.remaining === 0 ? "bg-orange-400" : "bg-green-400"
+                                    }`}></span>
+                                    <span className={`relative inline-flex rounded-full h-2 w-2 ${
+                                        spotsData?.remaining === 0 ? "bg-orange-500" : "bg-green-500"
+                                    }`}></span>
                                 </span>
-                                7 spots remaining for today&apos;s cohort
+                                {spotsData?.remaining === 0
+                                    ? "Today's cohort is full — join waitlist"
+                                    : `${spotsData?.remaining ?? "..."} spots remaining for today's cohort`
+                                }
                             </div>
 
                             {/* Transparency Link */}

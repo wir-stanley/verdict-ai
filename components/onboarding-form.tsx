@@ -22,6 +22,9 @@ export function OnboardingForm() {
         try {
             await submitApplication({
                 clerkId: user.id,
+                email: user.primaryEmailAddress?.emailAddress,
+                name: user.fullName || user.firstName || undefined,
+                imageUrl: user.imageUrl,
                 profession,
                 useCase,
             });

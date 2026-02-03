@@ -16,6 +16,7 @@ export default defineSchema({
         profession: v.optional(v.string()),
         useCase: v.optional(v.string()),
         applicationDate: v.optional(v.number()),
+        approvedAt: v.optional(v.number()),
         createdAt: v.number(),
     })
         .index("by_clerk_id", ["clerkId"])
